@@ -19,7 +19,7 @@
 
         <td>
           <div id = "favorites_buttons_<%= book.id %>">
-            <td class="favorite-btn"><%= render partial: "favorites/favorite", locals: {book: book} %></td>
+            <%= render partial: "favorites/favorite", locals: {book: book} %>
           </div>
         </td>
 
