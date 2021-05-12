@@ -31,12 +31,16 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
 
   def self.search_for(content, method)
+    # 完全一致
     if method == 'perfect'
       User.where(name: content)
+    # 前方一致
     elsif method == 'forward'
       User.where('name LIKE ?', content + '%')
+    # 後方一致
     elsif method == 'backward'
       User.where('name LIKE ?', '%' + content)
+    # 部分一致
     else
       User.where('name LIKE ?', '%' + content + '%')
     end
